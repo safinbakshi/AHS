@@ -1,0 +1,32 @@
+---
+import Logo from './ui/Logo.astro';
+import NavLinks from './ui/NavLinks.astro';
+---
+
+<header>
+  <nav>
+    <div class="nav-content">
+      <Logo />
+      <NavLinks />
+    </div>
+  </nav>
+</header>
+
+<style>
+  header {
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>

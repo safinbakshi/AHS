@@ -1,0 +1,28 @@
+---
+const socialLinks = [
+  { href: '#', text: 'Twitter' },
+  { href: '#', text: 'Facebook' },
+  { href: '#', text: 'LinkedIn' }
+];
+---
+<div class="social-links">
+  {socialLinks.map(link => (
+    <a href={link.href} target="_blank" rel="noopener noreferrer">{link.text}</a>
+  ))}
+</div>
+
+<style>
+  .social-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .social-links a {
+    color: #666;
+    text-decoration: none;
+  }
+
+  .social-links a:hover {
+    color: #333;
+  }
+</style>

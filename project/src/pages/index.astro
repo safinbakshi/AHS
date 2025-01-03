@@ -1,0 +1,59 @@
+---
+import Layout from '../layouts/NewsLayout.astro';
+import NewsCard from '../components/NewsCard.astro';
+import TrendingNews from '../components/TrendingNews.astro';
+import { getCollection } from 'astro:content';
+import '../styles/global.css';
+
+const posts = await getCollection('news');
+posts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+---
+
+<Layout title="Latest News" description="Stay updated with the latest trending news">
+  <main class="container">
+    <TrendingNews />
+    <h1>Latest News</h1>
+    <div class="news-grid">
+      {posts.map(post => (
+        <NewsCard
+          title={post.data.title}
+          description={post.data.description}
+          image={post.data.image}
+          publishDate={post.data.publishDate}
+          slug={post.slug}
+          source={post.data.source}
+        />
+      ))}
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+  }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 1rem;
+    }
+    
+    h1 {
+      font-size: 2rem;
+    }
+  }
+</style>

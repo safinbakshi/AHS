@@ -1,0 +1,23 @@
+{
+  "name": "@example/news-website",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "fetch-news": "node src/scripts/fetchNews.js"
+  },
+  "dependencies": {
+    "astro": "^4.0.0",
+    "@astrojs/rss": "^4.0.1",
+    "@astrojs/sitemap": "^3.0.3",
+    "newsapi": "^2.4.1",
+    "date-fns": "^2.30.0",
+    "sharp": "^0.32.6",
+    "node-fetch": "^3.3.2"
+  }
+}

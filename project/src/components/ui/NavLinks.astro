@@ -1,0 +1,29 @@
+---
+const links = [
+  { href: '/', text: 'Home' },
+  { href: '/categories', text: 'Categories' },
+  { href: '/about', text: 'About' }
+];
+---
+<div class="nav-links">
+  {links.map(link => (
+    <a href={link.href}>{link.text}</a>
+  ))}
+</div>
+
+<style>
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: #333;
+  }
+</style>
